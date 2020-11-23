@@ -10,9 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_11_23_164158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "hauntedhouses", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "category"
+    t.string "address"
+    t.string "city"
+    t.string "country"
+    t.integer "price_per_night"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "journeys", force: :cascade do |t|
+    t.date "checkin"
+    t.date "checkout"
+    t.integer "price"
+    t.bigint "user_id", null: false
+    t.bigint "hauntedhouse_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hauntedhouse_id"], name: "index_journeys_on_hauntedhouse_id"
+    t.index ["user_id"], name: "index_journeys_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "rating"
+    t.bigint "hauntedhouse_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hauntedhouse_id"], name: "index_reviews_on_hauntedhouse_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "nickname"
+    t.string "name"
+    t.string "address"
+    t.string "mail"
+    t.string "role"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "journeys", "hauntedhouses"
+  add_foreign_key "journeys", "users"
+  add_foreign_key "reviews", "hauntedhouses"
+  add_foreign_key "reviews", "users"
 end
