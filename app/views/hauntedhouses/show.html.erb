@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-8">
 
-<%# <%= cl_image_path @hauntedhouse.photo.key, crop: :fill %>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('https://images.squarespace-cdn.com/content/v1/5a57ce94e9bfdfbcdf1ec75a/1550089796389-9CMHTEO6WLZZ1UAYBEWP/ke17ZwdGBToddI8pDm48kC68kOpRKJJmPVnKbiUp9MZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0hGaawTDWlunVGEFKwsEdnHyUYdwUpr8tN8OjEPIfCXrpi4XLMzYgU6MGsyQLSt9YQ/Loftus+hall+Daytime+%283%29.jpg?format=2500w');">
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= cl_image_path @hauntedhouse.photo.key, crop: :fill %>');">
   <div class="container">
     <h1><%= @hauntedhouse.name %></h1>
     <h2><%= @hauntedhouse.country %></h2>
