@@ -1,1 +1,49 @@
-<h1>showhouses</h1>
+<div class="container margin-top-negative">
+  <div class="row">
+    <div class="col-8">
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://cdn.generationvoyage.fr/2014/04/Ch%C3%A2teau-de-Dunnottar-755x504.jpg);">
+  <div class="container">
+    <h1><%= @hauntedhouse.name %></h1>
+    <h2><%= @hauntedhouse.country %></h2>
+    <p><%= @hauntedhouse.address %>, <%= @hauntedhouse.city %></p>   
+  </div>
+</div>
+
+      
+      <div class="hauntedhouse-show-card">
+        <h3>A bit more about this hauntedhouse...</h3>
+        <p><%= @hauntedhouse.description %></p>
+        <p><%= link_to "Back", hauntedhouses_path %></p>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="hauntedhouse-show-card">
+
+        <form action="">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">From : </span>
+            <input type="text" class="form-control" placeholder="25/11/2020" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mt-2">
+            <span class="input-group-addon" id="basic-addon1">To : </span>
+            <input type="text" class="form-control" placeholder="03/12/2020" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          
+          <input type="submit" value="Book" class="btn btn-dark" style="width: 100%">
+        </form>
+      </div>
+      <div class="hauntedhouse-show-card">
+        <h3>Details</h3>
+        <div class="flex">          
+          </div>
+     
+            <p>Price per night : <%= @hauntedhouse.price_per_night %>€</p> 
+            <p>Number of ghosts : at least 3</p>
+            <p>Demonic presence : not known</p> 
+      </div>
+
+    </div>
+  </div>
+</div>
