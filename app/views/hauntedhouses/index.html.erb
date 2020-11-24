@@ -1,17 +1,26 @@
-<div class = "flex-container">
+<%= render "/shared/banner" %>
+
+<div class = "container">
     <div class="cards">
-        <div class = "row justify-content-between">
-            <% @hauntedhouses.each do |hauntedhouse| %>
-    
-             <div class="card-category">
-                <p> <%= link_to hauntedhouse.name, hauntedhouse_path(hauntedhouse.id) %></p>
-            </div>
         
-            <% end %>
-            </div>
+      <% @hauntedhouses.each do |hauntedhouse| %>
+          <% if hauntedhouse.photo.attached? %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), 
+          rgba(0,0,0,0.3)), url('<%= cl_image_path hauntedhouse.photo.key, height: 300, width: 400, crop: :fill %>')">  
+            <p> <%= link_to hauntedhouse.name, hauntedhouse_path(hauntedhouse.id) %></p>
+                
+          <% else %>
+            <p> <%= link_to hauntedhouse.name, hauntedhouse_path(hauntedhouse.id) %></p>
+       
+        <% end %>
+      <% end %>
+    </div>
 </div>
 
 <%= link_to new_hauntedhouse_path do %>
   <i class="fa fa-plus"> Add a new hauntedhouse</i>
 <% end %><br />
 </div>
+
+
+
