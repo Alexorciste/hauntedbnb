@@ -1,0 +1,16 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-4">
+      <%= simple_form_for(@hauntedhouse) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :category, collection: ["un", "deux", "trois", "quatre", "cinq"] %>
+        <%= f.input :address %>
+        <%= f.input :city %>
+        <%= f.number_field :price_per_night %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,19 +1,18 @@
 class HauntedhousesController < ApplicationController
-  before_action :set_hauntedhouse, only: [:show]
+
+  before_action :set_hauntedhouse, only: [:show, :edit, :update, :create]
 
   def index
-    @hauntedhouses = Hauntedhouse.all
+       @hauntedhouses = Hauntedhouse.all
   end
 
   def new
-    @hauntedhouse = Hauntedhouse.new
+      @hauntedhouse = Hauntedhouse.new
   end
 
-  # ​
   def show
   end
 
-  # ​
   def create
     @hauntedhouse = Hauntedhouse.new(hauntedhouse_params)
     if @hauntedhouse.save
@@ -23,8 +22,16 @@ class HauntedhousesController < ApplicationController
     end
   end
 
-  private
+  def edit
+  end
 
+  def update
+    @hauntedhouse = Hauntedhouse.find(params[:id])
+    @hauntedhouse.update(hauntedhouse_params)
+    redirect_to hauntedhouse_path(@hauntedhouse)
+  end
+
+private
   def hauntedhouse_params
     params.require(:hauntedhouse).permit(:name, :description, :category, :address, :city, :country, :price_per_night, :photo)
   end
