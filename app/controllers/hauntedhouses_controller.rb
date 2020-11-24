@@ -1,4 +1,5 @@
 class HauntedhousesController < ApplicationController
+
   before_action :set_hauntedhouse, only: [:show, :edit, :update, :create]
 
   def index
@@ -32,7 +33,7 @@ class HauntedhousesController < ApplicationController
 
 private
   def hauntedhouse_params
-    params.require(:hauntedhouse).permit(:name, :description, :category, :address, :city, :country, :price_per_night)
+    params.require(:hauntedhouse).permit(:name, :description, :category, :address, :city, :country, :price_per_night, :photo)
   end
 
   def set_hauntedhouse
