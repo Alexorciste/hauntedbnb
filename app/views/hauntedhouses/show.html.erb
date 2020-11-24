@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-8">
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://cdn.generationvoyage.fr/2014/04/Ch%C3%A2teau-de-Dunnottar-755x504.jpg);">
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= cl_image_path @hauntedhouse.photo.key, crop: :fill %>');">
   <div class="container">
     <h1><%= @hauntedhouse.name %></h1>
     <h2><%= @hauntedhouse.country %></h2>
@@ -15,6 +17,7 @@
         <h3>A bit more about this hauntedhouse...</h3>
         <p><%= @hauntedhouse.description %></p>
         <p><%= link_to "Back", hauntedhouses_path %></p>
+        <p><%= link_to "Edit", edit_hauntedhouse_path(@hauntedhouse) %></p>
       </div>
     </div>
 
@@ -22,13 +25,15 @@
       <div class="hauntedhouse-show-card">
 
         <form action="">
+        <div class="form">
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">From : </span>
             <input type="text" class="form-control" placeholder="25/11/2020" aria-label="Username" aria-describedby="basic-addon1">
           </div>
-          <div class="input-group mt-2">
+          <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">To : </span>
             <input type="text" class="form-control" placeholder="03/12/2020" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
           </div>
           
           <input type="submit" value="Book" class="btn btn-dark" style="width: 100%">
