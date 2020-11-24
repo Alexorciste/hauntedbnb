@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(version: 2020_11_23_182145) do
   enable_extension "plpgsql"
 
   create_table "hauntedhouses", force: :cascade do |t|
-    t.string name
-    t.string description
-    t.string category
-    t.string address
-    t.string city
-    t.string country
-    t.integer price_per_night
+    t.string "name"
+    t.string "description"
+    t.string "category"
+    t.string "address"
+    t.string "city"
+    t.string "country"
+    t.integer "price_per_night"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_182145) do
 
   create_table "reviews", force: :cascade do |t|
     t.string "title"
-    t.string description
+    t.string "description"
     t.integer "rating"
     t.bigint "hauntedhouse_id", null: false
     t.bigint "user_id", null: false
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 2020_11_23_182145) do
 
   create_table "users", force: :cascade do |t|
     t.string "nickname"
-    t.string name
-    t.string address
+    t.string "name"
+    t.string "address"
     t.string "mail"
     t.string "role"
     t.datetime "created_at", precision: 6, null: false
