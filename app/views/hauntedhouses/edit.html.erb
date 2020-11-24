@@ -3,7 +3,7 @@
     <div class = "col-4">
       <%= simple_form_for(@hauntedhouse) do |f| %>
         <%= f.input :name %>
-        <%= f.input :description %>
+        <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 10 } %>
         <%= f.input :category, collection: ["un", "deux", "trois", "quatre", "cinq"] %>
         <%= f.input :address %>
         <%= f.input :city %>
