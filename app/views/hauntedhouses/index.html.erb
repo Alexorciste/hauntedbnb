@@ -1,0 +1,17 @@
+<div class = "flex-container">
+    <div class="cards">
+        <div class = "row justify-content-between">
+            <% @hauntedhouses.each do |hauntedhouse| %>
+    
+             <div class="card-category">
+                <p> <%= link_to hauntedhouse.name, hauntedhouse_path(hauntedhouse.id) %></p>
+            </div>
+        
+            <% end %>
+            </div>
+</div>
+
+<%= link_to new_hauntedhouse_path do %>
+  <i class="fa fa-plus"> Add a new hauntedhouse</i>
+<% end %><br />
+</div>
