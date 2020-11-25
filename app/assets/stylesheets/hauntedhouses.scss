@@ -6,15 +6,15 @@ body {
   background-size: cover;
   background-position: center;
   padding: 200px 0;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   margin-bottom: 20px;
-  position: relative;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner .container {
   position: absolute;
-  bottom: 1px;
-  left: 1px;
+  margin: 0 auto;
 }
 
 .banner h1 {
