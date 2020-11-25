@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :journeys
 
-  validates :name, uniqueness: true
+  
 end
