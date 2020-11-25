@@ -36,7 +36,8 @@ class JourneysController < ApplicationController
     @journey.user = current_user
 
     if @journey.save!
-      redirect_to  hauntedhouse_journeys_path(@hauntedhouse)
+      redirect_to journeys_path
+      #redirect_to  hauntedhouse_journeys_path(@hauntedhouse)
     else
       @journey = Journey.new
       render :new

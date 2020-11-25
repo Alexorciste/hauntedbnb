@@ -1,4 +1,5 @@
 <h1>Yours Journeys</h1>
+<div class = "col-4">
 <% @journeys.each do |journey| %>
 <% hauntedhouse = Hauntedhouse.find(journey.hauntedhouse_id) %>
 
@@ -9,9 +10,6 @@
              </div>
  <% end %>
 
-
-
-
 checkin
 <%= journey.checkin %><br/>
 checkout
@@ -19,5 +17,5 @@ checkout
 price
 <%= journey.price %><br/>
 <% end %>
-
+</div>
 
