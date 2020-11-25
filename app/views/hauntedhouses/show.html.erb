@@ -1,10 +1,8 @@
 <div class="container margin-top-negative">
   <div class="row">
-    <div class="col-8">
+    <div class="col-10">
 
-
-
-<div class="house-card" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= cl_image_path @hauntedhouse.photo.key, crop: :fill %>');">
+<div class="house-card" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= cl_image_path @hauntedhouse.photo.key, width: 400, height: 300, crop: :fill %>');">
   <div class="house-description">
     <h1><%= @hauntedhouse.name %></h1>
     <h2><%= @hauntedhouse.country %></h2>
@@ -16,16 +14,22 @@
       <div class="hauntedhouse-show-card">
         <h3>A bit more about this hauntedhouse...</h3>
         <p><%= @hauntedhouse.description %></p>
-        <p><%= link_to "Back", hauntedhouses_path %></p>
-        <p><%= link_to "Edit", edit_hauntedhouse_path(@hauntedhouse) %></p>
+        <h3>Details</h3>
+        <p>Price per night : <%= @hauntedhouse.price_per_night %>€</p> 
+          <p>Category : <%= @hauntedhouse.category %></p> 
+          <p align="center"><%= link_to "Book this house", new_hauntedhouse_journey_path(@hauntedhouse), class: "btn btn-dark" %></p>
+        <p align="right"><%= link_to "Back", hauntedhouses_path %> | <%= link_to "Edit", edit_hauntedhouse_path(@hauntedhouse) %></p>
+
+        
       </div>
     </div>
 
-    <div class="col-4">
+   <!-- <div class="col-4">
       <div class="hauntedhouse-show-card">
 
         <form action="">
         <div class="form">
+      
         <p>A remplacer par le formulaire journeys</p>
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">From : </span>
@@ -46,9 +50,8 @@
           </div>
      
             <p>Price per night : <%= @hauntedhouse.price_per_night %>€</p> 
-            <p>Number of ghosts : at least 3</p>
-            <p>Demonic presence : not known</p> 
-      </div>
+            <p>Category : <%= @hauntedhouse.category %></p> 
+      </div> -->
 
     </div>
   </div>
