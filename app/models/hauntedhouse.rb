@@ -1,5 +1,5 @@
 class Hauntedhouse < ApplicationRecord
-  CATEGORY = %w(un deux trois quatre cinq)
+  CATEGORY = ["Frightening", "Terrifying", "Chilling", "Blood-curdling", "Deadly"]
   has_many :reviews
   has_many :journeys
 
