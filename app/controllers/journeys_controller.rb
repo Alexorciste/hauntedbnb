@@ -1,4 +1,9 @@
 class JourneysController < ApplicationController
+
+  def index
+    @journeys = Journey.where(user_id: current_user.id)
+  end
+
   def new
     @journey = Journey.new
     @hauntedhouse = Hauntedhouse.find(params[:hauntedhouse_id])
@@ -31,7 +36,8 @@ class JourneysController < ApplicationController
     @journey.user = current_user
 
     if @journey.save!
-      redirect_to hauntedhouse_path(@hauntedhouse)
+      redirect_to journeys_path
+      #redirect_to  hauntedhouse_journeys_path(@hauntedhouse)
     else
       @journey = Journey.new
       render :new
@@ -45,6 +51,7 @@ class JourneysController < ApplicationController
   end
 
   private
+
 
   def journey_params
     params.require(:journey).permit(:checkin, :checkout, :price)
