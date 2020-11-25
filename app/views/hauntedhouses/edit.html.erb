@@ -1,13 +1,13 @@
-<div class = "container">
+<div class = "haunted-form">
   <div class = "row">
     <div class = "col-4">
       <%= simple_form_for(@hauntedhouse) do |f| %>
         <%= f.input :name %>
-        <%= f.input :description %>
-        <%= f.input :category, collection: ["un", "deux", "trois", "quatre", "cinq"] %>
+        <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 10 } %>
+        <%= f.input :category, collection: ["Frightening", "Terrifying", "Chilling", "Blood-curdling", "Deadly"] %>
         <%= f.input :address %>
         <%= f.input :city %>
-        <%= f.number_field :price_per_night %>
+        Price per night : <%= f.number_field :price_per_night %>€
         <%= f.input :photo, as: :file %>
         <%= f.submit %>
       <% end %>

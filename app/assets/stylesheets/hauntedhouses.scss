@@ -1,23 +1,35 @@
 body {
   background-color: rgb(158, 157, 157);
+  z-index: -1;
 }
 
-.banner {
+.col-4 {
+  margin-top: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 300px;
+}
+
+.house-card {
   background-size: cover;
   background-position: center;
   padding: 200px 0;
-  /* border-radius: 5px; */
+  border-radius: 5px;
   margin-bottom: 20px;
   justify-content: center;
   align-items: center;
+  position: relative;
+  height: 400px;
 }
 
-.banner .container {
+.house-description {
   position: absolute;
-  margin: 0 auto;
+  bottom: 0;
+  margin: 15px;
 }
 
-.banner h1 {
+.house-card h1 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -25,7 +37,7 @@ body {
   font-weight: bold;
 }
 
-.banner h2 {
+.house-card h2 {
   margin: 0;
   color: white;
   opacity: 0.85;
@@ -33,7 +45,7 @@ body {
   font-size: 30px;
 }
 
-.banner p {
+.house-card p {
   font-size: 15px;
   color: white;
   opacity: 0.7;
@@ -105,7 +117,7 @@ body {
   margin-bottom: 0;
 }
 
-.flat-show-address {
+.hauntedhouse-show-address {
   font-weight: 300;
   font-size: 20px;
   color: #333;
@@ -113,6 +125,12 @@ body {
 
 .input-group {
   align-items: baseline;
+  // position: relative;
+  right: 0px;
   margin: 10px;
-  width: 50%;
+  width: 80%;
+}
+
+.input-group {
+  right: 0;
 }
