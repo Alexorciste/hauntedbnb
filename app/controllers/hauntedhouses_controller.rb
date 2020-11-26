@@ -1,13 +1,16 @@
 class HauntedhousesController < ApplicationController
 
-  before_action :set_hauntedhouse, only: [:show, :edit, :update, :create]
+  before_action :set_hauntedhouse, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
        @hauntedhouses = Hauntedhouse.all
+       @hauntedhouses = policy_scope(Hauntedhouse).order(created_at: :desc)
   end
 
   def new
       @hauntedhouse = Hauntedhouse.new
+      
   end
 
   def show
@@ -30,6 +33,12 @@ class HauntedhousesController < ApplicationController
     @hauntedhouse.update(hauntedhouse_params)
     redirect_to hauntedhouse_path(@hauntedhouse)
   end
+
+  def destroy
+    @hauntedhouse.destroy
+    redirect_to hauntedhouses_path
+  end
+
 
 private
   def hauntedhouse_params

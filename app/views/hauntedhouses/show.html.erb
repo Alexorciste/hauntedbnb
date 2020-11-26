@@ -28,8 +28,8 @@
         <p>Price per night : <%= @hauntedhouse.price_per_night %>€</p>
           <p>Category : <%= @hauntedhouse.category %></p>
           <p align="center"><%= link_to "Book this house", new_hauntedhouse_journey_path(@hauntedhouse), class: "btn btn-dark" %></p>
-        <p align="right"><%= link_to "Back", hauntedhouses_path %> | <%= link_to "Edit", edit_hauntedhouse_path(@hauntedhouse) %></p>
-
+        <p align="right"><%= link_to "Back", hauntedhouses_path %> | <%= link_to "Edit", edit_hauntedhouse_path(@hauntedhouse) %>| <%= link_to "Send House to Hell", hauntedhouse_path(@hauntedhouse), method: :delete, data: { confirm: "confirm?" } %></p> 
+        
 
       </div>
     </div>

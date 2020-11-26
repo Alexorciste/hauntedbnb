@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'hauntedhouses#index'
-  resources :hauntedhouses, only: [:index, :show, :new, :edit, :update, :create ] do
+  resources :hauntedhouses, only: [:index, :show, :new, :edit, :update, :create, :destroy ] do
     resources :journeys, only: [:show, :new, :create]
   end
   resources :journeys, only: [:index]
