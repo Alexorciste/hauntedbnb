@@ -3,7 +3,7 @@ class HauntedhousesController < ApplicationController
   before_action :set_hauntedhouse, only: [:show, :edit, :update, :create]
 
   def index
-       @hauntedhouses = Hauntedhouse.all
+      @hauntedhouses = Hauntedhouse.all
   end
 
   def new
@@ -21,6 +21,7 @@ class HauntedhousesController < ApplicationController
       render :new
     end
   end
+
 
   def edit
   end
