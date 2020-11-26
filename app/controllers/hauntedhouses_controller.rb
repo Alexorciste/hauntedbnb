@@ -3,7 +3,11 @@ class HauntedhousesController < ApplicationController
   before_action :set_hauntedhouse, only: [:show, :edit, :update, :create]
 
   def index
+    if params[:query].present?
+      @hauntedhouses = Hauntedhouse.search_by_all(params[:query])
+    else
        @hauntedhouses = Hauntedhouse.all
+    end
   end
 
   def new
