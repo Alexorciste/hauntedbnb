@@ -9,13 +9,15 @@
             <p> <%= link_to hauntedhouse.name, hauntedhouse_path(hauntedhouse) %></p>
              </div>
  <% end %>
-
-checkin
+<br>
+Check-in :
 <%= journey.checkin %><br/>
-checkout
+Check-out :
 <%= journey.checkout %><br/>
-price
-<%= journey.price %><br/>
+Price :
+<%= journey.price %>€<br/>
+<%= link_to "Cancel this reservation", journey_path(journey), method: :delete, data: { confirm: "Are you sure ?" } %>
+<br>
 <% end %>
 </div>
 
