@@ -8,13 +8,13 @@ class JourneysController < ApplicationController
   def new
     @journey = Journey.new
     @hauntedhouse = Hauntedhouse.find(params[:hauntedhouse_id])
-    authorize @journey
+    
   end
 
   def create
     @hauntedhouse = Hauntedhouse.find(params[:hauntedhouse_id])
     @journey = Journey.new(journey_params)
-    authorize @journey
+    
 
     @journey.hauntedhouse = @hauntedhouse
 

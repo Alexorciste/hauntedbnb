@@ -4,8 +4,7 @@ class HauntedhousesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-       @hauntedhouses = Hauntedhouse.all
-       @hauntedhouses = policy_scope(Hauntedhouse).order(created_at: :desc)
+    @hauntedhouses = policy_scope(Hauntedhouse)
   end
 
   def new
@@ -14,6 +13,7 @@ class HauntedhousesController < ApplicationController
   end
 
   def show
+    authorize @hauntedhouse
   end
 
   def create
@@ -32,11 +32,13 @@ class HauntedhousesController < ApplicationController
     @hauntedhouse = Hauntedhouse.find(params[:id])
     @hauntedhouse.update(hauntedhouse_params)
     redirect_to hauntedhouse_path(@hauntedhouse)
+    
   end
 
   def destroy
     @hauntedhouse.destroy
     redirect_to hauntedhouses_path
+    
   end
 
 
