@@ -1,0 +1,12 @@
+<div class="searchbar">
+<%= form_tag hauntedhouses_path, method: :get, html: {id: "search"} do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Plutôt fantôme ou démon ? Maison ou château ?"
+  %>
+  <div class="search-btn">
+  <%= submit_tag "Cherchez", class: "btn btn-dark" %>
+<% end %>
+</div>
+</div>
