@@ -5,7 +5,6 @@
 
 <div class = "container">
     <div class="cards">
-
       <% @hauntedhouses.each do |hauntedhouse| %>
       <%#affiche uniquement les maisons du proprio <% if hauntedhouse.user == current_user %>
           <% if hauntedhouse.photo.attached? %>
@@ -14,39 +13,16 @@
                  <p><%= link_to hauntedhouse.name, hauntedhouse_path(hauntedhouse) %></p>
               </div>
               <div class ="tag">
-                  <% if hauntedhouse.visited? %>
-                    Visitée
-                  <% end %>
-                  <% if hauntedhouse.reserved? %>
-                    Reservée
-                  <% end %>
-                  <% if hauntedhouse.running? %>
-                    Bon séjour!!
+                  <% if !current_user.nil? && current_user != hauntedhouse.user %>
+                      <% if hauntedhouse.reserved?(current_user) %>
+                        <p>Reservée</p>
+                      <% end %>
                   <% end %>
               </div>
-            </div>
-          <% else %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.businessnhmagazine.com/UploadedFiles/Articles/8151/66581491_m.jpg')">
-            <div class ="card-content">
-              <p><%= link_to hauntedhouse.name, hauntedhouse_path(hauntedhouse) %></p>
+
               </div>
-              <div class="tag">
-              <% if hauntedhouse.visited? %>
-                <p>Visitée</p>
-              <% end %>
-              <% if hauntedhouse.reserved? %>
-                <p>Reservée</p>
-              <% end %>
-              <% if hauntedhouse.running? %>
-                <p>Bon séjour!!</p>
-              <% end %>
-            </div>
-           </div>
         <% end %>
       <% end %>
-
-<%# end %>
-
 </div>
 
 <!-- <%= link_to new_hauntedhouse_path do %>
