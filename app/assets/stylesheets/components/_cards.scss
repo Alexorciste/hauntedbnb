@@ -12,6 +12,7 @@
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     opacity: 0.9;
+    position: relative;
 
       a {
             color: white;
@@ -25,9 +26,11 @@
 
 
   .tag {
-    position: relative;
+    position: absolute;
       margin: 0 auto;
       font-size: .5em;
+      top: 10px;
+      right: 10px;
     }
 
   .cards {

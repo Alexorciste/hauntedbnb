@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root to: 'hauntedhouses#index'
 
   resources :hauntedhouses, only: [:index, :show, :new, :edit, :update, :create, :destroy ] do
-    resources :journeys, only: [:show, :new, :create]
-
+    resources :journeys, only: [:show, :new, :create] 
+    collection do
+      get :hauntedlist
+    end
   end
   resources :journeys, only: [:index, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
