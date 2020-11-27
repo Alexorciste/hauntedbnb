@@ -7,7 +7,6 @@ class HauntedhousesController < ApplicationController
 
     if params[:query].present?
       @hauntedhouses = Hauntedhouse.search_by_all(params[:query])
-      redirect_to hauntedhouses_path
     else
        @hauntedhouses = Hauntedhouse.all
        
