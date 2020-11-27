@@ -1,5 +1,5 @@
-<div class="searchbar">
-<%= form_tag hauntedhouses_path, method: :get, html: {id: "search"} do %>
+<div id="search" class="searchbar">
+<%= form_tag hauntedhouses_path(anchor: "search"), method: :get, html: {id: "search"} do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
