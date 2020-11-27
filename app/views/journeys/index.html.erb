@@ -1,4 +1,4 @@
-<h1>Yours Journeys</h1>
+<h1>Vos réservations</h1>
 <div class = "col-4">
 <% @journeys.each do |journey| %>
 <% hauntedhouse = Hauntedhouse.find(journey.hauntedhouse_id) %>
@@ -19,13 +19,13 @@
 
  <% end %>
 <br>
-Check-in :
+Date d'arrivée :
 <%= journey.checkin %><br/>
-Check-out :
+Date de départ :
 <%= journey.checkout %><br/>
-Price :
+Prix du séjour :
 <%= journey.price %>€<br/>
-<%= link_to "Cancel this reservation", journey_path(journey), method: :delete, data: { confirm: "Are you sure ?" } %>
+<%= link_to "Annuler cette reservation", journey_path(journey), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer ?" } %>
 <br>
 <% end %>
 </div>

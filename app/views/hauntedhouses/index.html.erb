@@ -11,15 +11,15 @@
               <div>
                  <p><%= link_to hauntedhouse.name, hauntedhouse_path(hauntedhouse) %></p>
               </div>
-              <div class = "tag">
+              <div class ="tag">
                   <% if hauntedhouse.visited? %>
-                    <p>visitée</p>
+                    Visitée
                   <% end %>
                   <% if hauntedhouse.reserved? %>
-                    <p>reservée</p>
+                    Reservée
                   <% end %>
                   <% if hauntedhouse.running? %>
-                    <p>Bon séjour!!</p>
+                    Bon séjour!!
                   <% end %>
               </div>
             </div>
@@ -28,12 +28,12 @@
             <div class ="card-content">
               <p><%= link_to hauntedhouse.name, hauntedhouse_path(hauntedhouse) %></p>
               </div>
-              <div>
+              <div class="tag">
               <% if hauntedhouse.visited? %>
-                <p>visitée</p>
+                <p>Visitée</p>
               <% end %>
               <% if hauntedhouse.reserved? %>
-                <p>reservée</p>
+                <p>Reservée</p>
               <% end %>
               <% if hauntedhouse.running? %>
                 <p>Bon séjour!!</p>
