@@ -3,14 +3,16 @@
   <div class = "row">
     <div class = "col-4">
       <%= simple_form_for(@hauntedhouse) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 10 } %>
-        <%= f.input :category, collection: ["Frightening", "Terrifying", "Chilling", "Blood-curdling", "Deadly"] %>
-        <%= f.input :address %>
-        <%= f.input :city %>
-        Price per night : <%= f.number_field :price_per_night %>€
-        <%= f.input :photo, as: :file %>
-        <%= f.submit %>
+        <%= f.input :name, label: "Nom" %>
+        <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 6 } %>
+        <%= f.input :category, label: "Catégorie", collection: ["Frightening", "Terrifying", "Chilling", "Blood-curdling", "Deadly"] %>
+        <%= f.input :address, label: "Adresse" %>
+        <%= f.input :city, label: "Ville" %>
+        Prix à la nuit : <%= f.number_field :price_per_night %>€
+        <br>
+        <br>
+        <%= f.input :photo, as: :file, label: "Ajoutez une photo" %>
+        <%= f.button :submit, "Mettre en location", class: "btn btn-dark" %>
       <% end %>
     </div>
   </div>
