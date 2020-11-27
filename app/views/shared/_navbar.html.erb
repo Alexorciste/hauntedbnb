@@ -20,7 +20,10 @@
           <%= image_tag "https://res.cloudinary.com/dsmxleyf5/image/upload/v1606229210/qenaiz0yjkczpsl8fcvw.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-            <%= link_to "Louer votre Maison", new_hauntedhouse_path, class: "dropdown-item" %>
+            <% if current_user.hauntedhouses %>
+            <%= link_to "Afficher mes biens", hauntedlist_hauntedhouses_path, class: "dropdown-item" %>
+            <%end %>
+             <%= link_to "Louer votre Maison", new_hauntedhouse_path, class: "dropdown-item" %>
             <%= link_to "Mes réservations", journeys_path, class: "dropdown-item" %>
             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
 

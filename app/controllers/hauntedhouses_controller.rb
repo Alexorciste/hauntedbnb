@@ -18,6 +18,15 @@ class HauntedhousesController < ApplicationController
       
   end
 
+  def hauntedlist
+    if params[:query].present?
+      @hauntedhouses = Hauntedhouse.search_by_all(params[:query])
+    else
+       @hauntedhouses = Hauntedhouse.all
+    end
+
+  end
+
   
 
   def create
@@ -34,6 +43,9 @@ class HauntedhousesController < ApplicationController
   def show
   end
 
+  def hauntedlist
+    @hauntedhouses = Hauntedhouse.all
+  end
 
 
   def edit
