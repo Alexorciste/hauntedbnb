@@ -1,8 +1,6 @@
 
 <%= render "/shared/banner" %>
-
 <%= render "/shared/searchbar" %>
-
 <div class = "container">
     <div class="cards">
       <% @hauntedhouses.each do |hauntedhouse| %>
@@ -13,22 +11,24 @@
                  <p><%= link_to hauntedhouse.name, hauntedhouse_path(hauntedhouse) %></p>
               </div>
               <div class ="tag">
+
                   <% if !current_user.nil? && current_user != hauntedhouse.user %>
                       <% if hauntedhouse.reserved?(current_user) %>
                         <p>Reservée</p>
                       <% end %>
                   <% end %>
+
               </div>
 
               </div>
         <% end %>
       <% end %>
-</div>
 
+
+
+
+</div>
 <!-- <%= link_to new_hauntedhouse_path do %>
   <i class="fa fa-plus"> Add a new hauntedhouse</i>
 <% end %><br />-->
 </div>
-
-
-
