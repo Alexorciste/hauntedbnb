@@ -1,9 +1,9 @@
-<div class="container margin-top-negative">
+<div class="house-show margin-top-negative">
   <div class="row">
     <div class="col-10">
 
       <% if @hauntedhouse.photo.attached? %>
-          <div class="house-card" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= cl_image_path @hauntedhouse.photo.key, width: 400, height: 300, crop: :fill %>');">
+          <div class="house-card" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= cl_image_path @hauntedhouse.photo.key %>');">
             <div class="house-description">
              <% if @hauntedhouse.user == current_user %>
              <p><%= "Vous êtes l'heureux propriétaire de cette merveille "%>
@@ -25,21 +25,23 @@
 
 
       <div class="hauntedhouse-show-card">
-        <h3>A bit more about this hauntedhouse...</h3>
+        <h3>Quelques détails sur l'histoire de cette demeure</h3>
         <p><%= @hauntedhouse.description %></p>
+
         <h3>Details</h3>
         <p>Price per night : <%= @hauntedhouse.price_per_night %>€</p>
           <p>Category : <%= @hauntedhouse.category %></p>
           <% if @hauntedhouse.user != current_user %>
-          <p align="center"><%= link_to "Book this house", new_hauntedhouse_journey_path(@hauntedhouse), class: "btn btn-dark" %></p>
+          <p align="center"><%= link_to "Réservez votre séjour", new_hauntedhouse_journey_path(@hauntedhouse), class: "btn btn-dark" %></p>
           <% end %>
-          <p align="right"><%= link_to "Back", hauntedhouses_path %> |  
+          <p align="right"><%= link_to "Retour", hauntedhouses_path %> |  
         
         <% if @hauntedhouse.user == current_user %>
-          <%= link_to "Edit", edit_hauntedhouse_path(@hauntedhouse) %><br />
-          <%= link_to "Send House to Hell", hauntedhouse_path(@hauntedhouse), method: :delete, data: { confirm: "confirm?" } %>
+          <%= link_to "Modifier", edit_hauntedhouse_path(@hauntedhouse) %><br />
+          <%= link_to "Envoyer cette maison en Enfer", hauntedhouse_path(@hauntedhouse), method: :delete, data: { confirm: "confirmer ?" } %>
         <% end %>
         </p>
+
       </div>
     </div>
 

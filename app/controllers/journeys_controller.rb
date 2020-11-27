@@ -1,5 +1,5 @@
 class JourneysController < ApplicationController
-
+ 
   def index
     @journeys = Journey.where(user_id: current_user.id)
     
@@ -51,6 +51,12 @@ class JourneysController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
+    @journey = Journey.find(params[:id])
+    @journey.destroy
+    redirect_to journeys_path
   end
 
   private

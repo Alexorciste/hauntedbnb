@@ -1,4 +1,4 @@
-<h1>Yours Journeys</h1>
+<h1>Vos réservations</h1>
 <div class = "col-4">
 <% @journeys.each do |journey| %>
 <% hauntedhouse = Hauntedhouse.find(journey.hauntedhouse_id) %>
@@ -8,14 +8,25 @@
           rgba(0,0,0,0.3)), url('<%= cl_image_path hauntedhouse.photo.key, height: 300, width: 400, crop: :fill %>')">
             <p> <%= link_to hauntedhouse.name, hauntedhouse_path(hauntedhouse) %></p>
              </div>
- <% end %>
 
-checkin
+              <% else %>
+
+             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),
+          rgba(0,0,0,0.3)), url('https://www.businessnhmagazine.com/UploadedFiles/Articles/8151/66581491_m.jpg')">
+            <p> <%= link_to hauntedhouse.name, hauntedhouse_path(hauntedhouse) %></p>
+
+             </div>
+
+ <% end %>
+<br>
+Date d'arrivée :
 <%= journey.checkin %><br/>
-checkout
+Date de départ :
 <%= journey.checkout %><br/>
-price
-<%= journey.price %><br/>
+Prix du séjour :
+<%= journey.price %>€<br/>
+<%= link_to "Annuler cette reservation", journey_path(journey), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer ?" } %>
+<br>
 <% end %>
 </div>
 

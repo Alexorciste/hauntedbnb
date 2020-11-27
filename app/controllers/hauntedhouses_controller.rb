@@ -4,7 +4,13 @@ class HauntedhousesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @hauntedhouses = Hauntedhouse.all
+
+    if params[:query].present?
+      @hauntedhouses = Hauntedhouse.search_by_all(params[:query])
+    else
+       @hauntedhouses = Hauntedhouse.all
+    end
+
   end
 
   def new
@@ -27,6 +33,8 @@ class HauntedhousesController < ApplicationController
 
   def show
   end
+
+
 
   def edit
   end
