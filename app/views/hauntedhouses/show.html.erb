@@ -4,10 +4,11 @@
 
       <% if @hauntedhouse.photo.attached? %>
           <div class="house-card" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= cl_image_path @hauntedhouse.photo.key %>');">
-            <div class="house-description">
-             <% if @hauntedhouse.user == current_user %>
-             <p><%= "Vous êtes l'heureux propriétaire de cette merveille "%>
+            <% if @hauntedhouse.user == current_user %>
+             <p class="text-bold"><%= "Vous êtes l'heureux propriétaire de cette merveille "%></p>
              <% end %>
+            <div class="house-description">
+             
               <h1><%= @hauntedhouse.name %></h1>
               <h2><%= @hauntedhouse.country %></h2>
               <p><%= @hauntedhouse.address %>, <%= @hauntedhouse.city %></p>
