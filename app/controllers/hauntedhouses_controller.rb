@@ -1,9 +1,10 @@
 class HauntedhousesController < ApplicationController
 
-  before_action :set_hauntedhouse, only: [:show, :edit, :update, :create]
+  before_action :set_hauntedhouse, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
-   
+
     if params[:query].present?
       @hauntedhouses = Hauntedhouse.search_by_all(params[:query])
     else
@@ -14,19 +15,25 @@ class HauntedhousesController < ApplicationController
 
   def new
       @hauntedhouse = Hauntedhouse.new
+      
   end
 
-  def show
-  end
+  
 
   def create
     @hauntedhouse = Hauntedhouse.new(hauntedhouse_params)
+    @hauntedhouse.user = current_user
+    
     if @hauntedhouse.save
       redirect_to hauntedhouses_path
     else
       render :new
     end
   end
+
+  def show
+  end
+
 
 
   def edit
@@ -36,7 +43,16 @@ class HauntedhousesController < ApplicationController
     @hauntedhouse = Hauntedhouse.find(params[:id])
     @hauntedhouse.update(hauntedhouse_params)
     redirect_to hauntedhouse_path(@hauntedhouse)
+    
   end
+
+  def destroy
+    @hauntedhouse.destroy
+    redirect_to hauntedhouses_path
+    
+  end
+  
+
 
 private
   def hauntedhouse_params
@@ -45,5 +61,6 @@ private
 
   def set_hauntedhouse
     @hauntedhouse = Hauntedhouse.find(params[:id])
+    
   end
 end

@@ -2,16 +2,19 @@ class JourneysController < ApplicationController
  
   def index
     @journeys = Journey.where(user_id: current_user.id)
+    
   end
 
   def new
     @journey = Journey.new
     @hauntedhouse = Hauntedhouse.find(params[:hauntedhouse_id])
+    
   end
 
   def create
     @hauntedhouse = Hauntedhouse.find(params[:hauntedhouse_id])
     @journey = Journey.new(journey_params)
+    
 
     @journey.hauntedhouse = @hauntedhouse
 
